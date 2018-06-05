@@ -5,7 +5,3 @@ source_parsers = {
 }
 
 source_suffix = ['.rst', '.md']
-
-extensions = [
-    'sphinx_markdown_tables',
-]
