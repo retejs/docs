@@ -7,12 +7,12 @@ All nodes can contain name, inputs, outputs and controls.
 
 **Name** must identify a node and point to the target of node.
 
-**Inputs** and **outputs** should be located on the left and right of the node, respectively. They are represented by a [Socket](Sockets.md) and can have names. All outputs can have an unlimited number of connections. By default inputs can only have one connection. You can change this passing the third parameter as `true`:
+**Inputs** and **outputs** should be located on the left and right of the node, respectively. They are represented by a [Socket](Sockets.html) and can have names. All outputs can have an unlimited number of connections. By default inputs can only have one connection. You can change this passing the third parameter as `true`:
 ```js
 var multiInput = new Rete.Input('Number', numSocket, true); 
 ```
 
-**[Controls](Controls.md)** can be located either directly at the node itself, or refers to a specific input. In fact, the location in the first case is defined in the standart template of a [Renderer plugin](Plugins.md#renderer). In the second case, the control is displayed when there is no connection at the input. This is necessary to ensure that the control is responsible for providing input data when they are not transferred from another node.
+**[Controls](Controls.html)** can be located either directly at the node itself, or refers to a specific input. In fact, the location in the first case is defined in the standart template of a [Renderer plugin](Plugins.html#renderer). In the second case, the control is displayed when there is no connection at the input. This is necessary to ensure that the control is responsible for providing input data when they are not transferred from another node.
 
 Let's create node:
 ```js 

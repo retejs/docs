@@ -24,7 +24,7 @@ import { Engine, ComponentWorker } from "rete/build/rete.engine";
 
 ![Editor components](assets/editor.png)
 
-Create needed [Sockets](Sockets.md)
+Create needed [Sockets](Sockets.html)
 ```js
 const numSocket = new Rete.Socket('Number value');
 ```
@@ -35,7 +35,7 @@ Define them styles
 }
 ```
 
-Create [component](Components.md)
+Create [component](Components.html)
 ```js
 class NumComponent extends Rete.Component {
     constructor(){
@@ -53,7 +53,7 @@ class NumComponent extends Rete.Component {
     }
 }
 ```
-Initialize a [node editor](Editor.md) aand register component
+Initialize a [node editor](Editor.html) aand register component
 ```html
 <div id="rete" class="node-editor"></div>
 ```
@@ -64,7 +64,7 @@ const editor = new Rete.NodeEditor('demo@0.1.0', container);
 const numComponent = new NumComponent();
 editor.register(numComponent);
 ```
-Use the [Engine](Engine.md) to start processing the data
+Use the [Engine](Engine.html) to start processing the data
 ```js
 const engine = new Rete.Engine('demo@0.1.0');
 editor.register(numComponent);

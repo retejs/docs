@@ -6,20 +6,20 @@ Editor
 `NodeEditor` presents an area with nodes and connections beetween their sockets:
 - Available interaction with the working area (moving, zoom) and managing nodes (move, add, delete)
 - Each node can have inputs and outputs through which connections to other nodes are created
-- Handle editor [events](Events.md)
-- All editor data can be [exported and imported](Editor.md#exportimport-data) from JSON format
+- Handle editor [events](Events.html)
+- All editor data can be [exported and imported](Editor.html#exportimport-data) from JSON format
 
 Create the instance of NodeEditor:
 ```js
 var editor = new Rete.NodeEditor('demo@0.1.0', container);
 ```
-The `demo@0.1.0` parameter is the [identifier](Editor.md#identifier) of your app/editor
+The `demo@0.1.0` parameter is the [identifier](Editor.html#identifier) of your app/editor
 
 The `container` is a simple HTMLelement (div, usually)
 
 ## Identifier
 
-Identifier consists of the app name and version. The version is needed to control the import of data into your editor, since the data to previous versions can be incompatible with the current version of your editor (where the main role is played by the Node builders, see below). The same rule exists for the [Engine](Engine.md), which allows to prevent incompatibility of data with implementations in [node workers](Engine.md#node-workers)
+Identifier consists of the app name and version. The version is needed to control the import of data into your editor, since the data to previous versions can be incompatible with the current version of your editor (where the main role is played by the Node builders, see below). The same rule exists for the [Engine](Engine.html), which allows to prevent incompatibility of data with implementations in [node workers](Engine.html#node-workers)
 
 
 ## Export/import data

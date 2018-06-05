@@ -1,7 +1,7 @@
 Engine
 -
 
-This component allows you to process [Flow-based](https://en.wikipedia.org/wiki/Flow-based_programming) data in nodes and transfer them from an output to input. The engine is independent of other components of the editor. All it needs is an [identifier](Editor.md#identifier), [workers](Engine.md#node-workers) from components and [JSON data](Editor.md#exportimport-data).
+This component allows you to process [Flow-based](https://en.wikipedia.org/wiki/Flow-based_programming) data in nodes and transfer them from an output to input. The engine is independent of other components of the editor. All it needs is an [identifier](Editor.html#identifier), [workers](Engine.html#node-workers) from components and [JSON data](Editor.html#exportimport-data).
 
 ```js
 var engine = new Rete.Engine('demo@0.1.0');
@@ -14,7 +14,7 @@ It can work independently and without knowing anything about NodeEditor.
 
 ## Processing
 
-Consider the situation when during the work in the editor you need to immediately receive the results of the changes (this is easy to do with [`change` event](Events.md))
+Consider the situation when during the work in the editor you need to immediately receive the results of the changes (this is easy to do with [`change` event](Events.html))
 
 ```js
 editor.on('process', () => {
