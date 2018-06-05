@@ -22,11 +22,11 @@ import { Engine, ComponentWorker } from "rete/build/rete.engine";
 
 ## Getting started
 
-![Editor components](https://i.imgur.com/QwPTKUI.png)
+![Editor components](assets/editor.png)
 
-Create needed [Sockets](https://github.com/Ni55aN/D3-Node-Editor/wiki/Sockets)
+Create needed [Sockets](Sockets)
 ```js
-var numSocket = new Rete.Socket('number', 'Number value', 'hint');
+const numSocket = new Rete.Socket('Number value');
 ```
 Define them styles
 ```css
@@ -35,70 +35,42 @@ Define them styles
 }
 ```
 
-Create some [components](https://github.com/Ni55aN/D3-Node-Editor/wiki/Components)
+Create [component](Components)
 ```js
-var numComp = new Rete.Component('Number',{
+class NumComponent extends Rete.Component {
+    constructor(){
+        super('Number');
+    }
+    
     builder(node) {
-        var out = new Rete.Output('Number',numSocket); 
-        var numControl = new Rete.Control('<input type="number">',(element, control)=>{
-            control.putData('num', 1);
-         });
+        let out = new Rete.Output('Number',numSocket); 
 
-        return node
-                  .addControl(numControl)
-                  .addOutput(out);
-    },
+        node.addOutput(out);
+    }
+
     worker(node, inputs, outputs){
         outputs[0] = node.data.num;
-  }
-});
-
-var addComp = new Rete.Component('Add',{
-    template: '<div .... ',
-    builder(node){
-      //...
-      return node;
-    },
-    async worker(node, inputs, outputs){
-       await asyncTask();
-   }
-});
-
-var components = [numComp,addComp];
+    }
+}
 ```
-Initialize [context menu](https://github.com/Ni55aN/D3-Node-Editor/wiki/Context-menu) and [node editor](https://github.com/Ni55aN/D3-Node-Editor/wiki/Editor)
+Initialize a [node editor](Editor) aand register component
 ```html
-<div id="Rete" class="node-editor"></div>
+<div id="rete" class="node-editor"></div>
 ```
 ```js
+const container = document.querySelector('#rete');
+const editor = new Rete.NodeEditor('demo@0.1.0', container);
 
-var menu = new Rete.ContextMenu({
-                'Actions':{
-                    'Action': function(){alert('Subitem selected');}
-                },
-                'Nodes':{
-                    'Number': numComp, 
-                    'Add': addComp
-                }
-           });
-var container = document.querySelector('#Rete');
-var editor = new Rete.NodeEditor('demo@0.1.0', container, components, menu);
+const numComponent = new NumComponent();
+editor.register(numComponent);
 ```
-Use the [Engine](https://github.com/Ni55aN/D3-Node-Editor/wiki/Engine) to start processing the data (also [avaliable](https://github.com/Ni55aN/D3-Node-Engine) cross-platform Engine)
+Use the [Engine](Engine) to start processing the data
 ```js
-var engine = new Rete.Engine('demo@0.1.0');
+const engine = new Rete.Engine('demo@0.1.0');
+editor.register(numComponent);
 
-editor.eventListener.on('change', async () => {
+editor.on('process nodecreate connection create', async () => {
     await engine.abort();            
-    var status = await engine.process(editor.toJSON());            
+    await engine.process(editor.toJSON());            
 });
 ```
-Full code and example you can take on the [Codepen](https://codepen.io/Ni55aN/pen/jBEKBQ)
-
-## Architecture
-
-![](https://i.imgur.com/MKPpJU9.png)
-
-&nbsp;
-
-![](https://i.imgur.com/P8E61o6.png)
