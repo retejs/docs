@@ -7,36 +7,36 @@ The editor can trigger the following events:
 
 | Event name | Parameters | Preventable | Note | 
 |------------|------------|-------------|------|
-| nodecreate | node | ✓ |
-| nodecreated | node | 
-| noderemove | node | ✓ |
-| noderemoved | node |
-| connectioncreate | { output, input } | ✓ | 
-| connectioncreated | connection | 
-| connectionremove | connection | ✓ |
-| connectionremoved | connection | 
-| nodetranslate | { node, x, y } | ✓ |
-| nodetranslated | { node } | 
-| selectnode | node | 
-| nodeselect | node | ✓ |
-| nodeselected | node | 
-| rendernode | { el, node, component, <br> bindSocket, bindControl } | | el is a HTMLElement
-| rendersocket | { el, input, output, socket } | 
-| rendercontrol | { el, control } | 
-| renderconnection | { el, connection:, x1, y1, x2, y2 } | 
-| componentregister | component | | it is used both in the editor and in the engine
-| keydown | e | | parameter is a KeyboardEvent
-| keyup | e | | parameter is a KeyboardEvent
-| translate | { transform, x, y } | ✓ | triggered when moving the scene
-| zoom | { translate, zoom } | ✓ | triggered when zooming the scene
-| click | { e, container } | | e is a MouseEvent
-| mousemove | { x, y } | | constantly updates the position of the mouse relative to the working area
-| contextmenu | { e, view, node } | | depending on the object on which the menu is called, the view or node will be passed
-| import | data |
-| export | data | 
-| process | | | is intended for external use <br> (does not have internal triggers)
-| error | { message, data } | | 
-| warn | message | | 
+| nodecreate | node | ✓ | |
+| nodecreated | node | | |
+| noderemove | node | ✓ | |
+| noderemoved | node | | |
+| connectioncreate | { output, input } | ✓ | |
+| connectioncreated | connection | | |
+| connectionremove | connection | ✓ | |
+| connectionremoved | connection | | |
+| nodetranslate | { node, x, y } | ✓ | |
+| nodetranslated | { node } | | |
+| selectnode | node | | |
+| nodeselect | node | ✓ | |
+| nodeselected | node | | |
+| rendernode | { el, node, component, <br> bindSocket, bindControl } | | el is a HTMLElement |
+| rendersocket | { el, input, output, socket } | | |
+| rendercontrol | { el, control } | | |
+| renderconnection | { el, connection:, x1, y1, x2, y2 } | | |
+| componentregister | component | | it is used both in the editor and in the engine |
+| keydown | e | | parameter is a KeyboardEvent |
+| keyup | e | | parameter is a KeyboardEvent |
+| translate | { transform, x, y } | ✓ | triggered when moving the scene |
+| zoom | { translate, zoom } | ✓ | triggered when zooming the scene |
+| click | { e, container } | | e is a MouseEvent |
+| mousemove | { x, y } | | constantly updates the position of the mouse relative to the working area |
+| contextmenu | { e, view, node } | | depending on the object on which the menu is called, the view or node will be passed |
+| import | data | | |
+| export | data | | |
+| process | | | is intended for external use <br> (does not have internal triggers) |
+| error | { message, data } | | |
+| warn | message | | |
 
 
 Subscribe to events using the method `on()`
