@@ -1,0 +1,13 @@
+site_name: Rete.js
+theme: default
+docs_dir: .
+pages:
+- 'Getting started': 'index.md'
+- 'Editor': 'Editor.md'
+- 'Engine': 'Engine.md'
+- 'Components': 'Components.md'
+- 'Nodes': 'Nodes.md'
+- 'Sockets': 'Sockets.md'
+- 'Events': 'Events.md'
+- 'Plugins': 'Plugins.md'
+- 'Controls': 'Controls.md'
