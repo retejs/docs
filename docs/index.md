@@ -22,7 +22,7 @@ import { Engine, ComponentWorker } from "rete/build/rete.engine";
 
 ## Getting started
 
-![Editor components](assets/editor.png)
+![Editor components](../assets/editor.png)
 
 Create needed [Sockets](Sockets.html)
 ```js
