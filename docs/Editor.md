@@ -1,7 +1,7 @@
 Editor
 -
 
-![components](../assets/editor.png)
+![components](assets/editor.png)
 
 `NodeEditor` presents an area with nodes and connections beetween their sockets:
 - Available interaction with the working area (moving, zoom) and managing nodes (move, add, delete)

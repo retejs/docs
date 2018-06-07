@@ -1,7 +1,7 @@
 Nodes
 -
 
-![node](../assets/node.png)
+![node](assets/node.png)
 
 All nodes can contain name, inputs, outputs and controls. 
 
