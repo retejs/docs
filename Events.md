@@ -6,7 +6,7 @@ The architecture of the framework is built on the event-based model, which allow
 The editor can trigger the following events:
 
 | Event name | Parameters | Preventable | Note | 
-|------------|------------|-------------|------|
+| :--------- | :--------- | :---------- | :--- |
 | nodecreate | node | ✓ | |
 | nodecreated | node | | |
 | noderemove | node | ✓ | |
