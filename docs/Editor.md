@@ -1,5 +1,5 @@
 Editor
--
+=
 
 ![components](assets/editor.png)
 

@@ -1,5 +1,5 @@
 Controls
--
+=
 
 Controls are necessary in order to allow you to expand the functionality of the nodes. You can insert any html template and a third-party object (input, select, image, jQuery plugin etc). 
 

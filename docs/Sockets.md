@@ -1,5 +1,5 @@
 Sockets
--
+=
 
 Sockets are used to determine which inputs and outputs can be connected. This can indicate the type of data that can be transferred from one node to another.
 

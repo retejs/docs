@@ -1,5 +1,5 @@
 Events
--
+=
 
 The architecture of the framework is built on the event-based model, which allowed to achieve weak connectivity between components and modifying the editor with plugins
 
