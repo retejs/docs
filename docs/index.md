@@ -12,8 +12,8 @@ npm install rete rete-alight-render-plugin rete-connection-plugin
 Import as follows
 ```js
 import Rete from "rete";
-import * as ConnectionPlugin from 'rete-alight-render-plugin';
-import * as AlightRenderPlugin from 'rete-connection-plugin';
+import * as ConnectionPlugin from 'rete-connection-plugin';
+import * as AlightRenderPlugin from 'rete-alight-render-plugin';
 ```
 Node.js (optionally, only for processing on the server)
 ```js
