@@ -3,7 +3,9 @@
 You can take latest build in [Releases](https://github.com/retejs/rete/releases). Add it and dependencies to your application.
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/rete@1.0.0-alpha.2/build/rete.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/rete@1.0.0-alpha.5/build/rete.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/rete-alight-render-plugin@0.1.4/build/alight-render-plugin.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/rete-connection-plugin@0.1.2/build/connection-plugin.min.js"></script>
 ```
 Using the build system, you can install a library from npm
 ```bash
@@ -12,12 +14,12 @@ npm install rete rete-alight-render-plugin rete-connection-plugin
 Import as follows
 ```js
 import Rete from "rete";
-import * as ConnectionPlugin from 'rete-connection-plugin';
-import * as AlightRenderPlugin from 'rete-alight-render-plugin';
+import ConnectionPlugin from 'rete-connection-plugin';
+import AlightRenderPlugin from 'rete-alight-render-plugin';
 ```
 Node.js (optionally, only for processing on the server)
 ```js
-import { Engine, ComponentWorker } from "rete/build/rete.engine";
+import { Engine, ComponentWorker } from "rete/build/rete-engine.min";
 ```
 
 ## Getting started
