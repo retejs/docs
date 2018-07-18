@@ -287,3 +287,32 @@ var moduleManager = new D3NE.ModuleManager(['Input'], ['Output']);
         socket: numSocket
     }
 ```
+
+Named inputs/outputs
+
+### v0.7.4
+
+```js
+new Input('Title', socket)
+new Output('Title', socket)
+
+worker(node, inputs, outputs) {
+    inputs[0][0]
+
+    outputs[0] = ...
+}
+```
+
+### v1.0.0 (starting from alpha.7)
+
+```js
+new Input('key', 'Title', socket)
+new Output('key', 'Title', socket)
+
+
+worker(node, inputs, outputs) {
+    inputs['key'][0]
+
+    outputs['key'] = ...
+}
+```

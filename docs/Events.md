@@ -67,6 +67,6 @@ You can handle multiple events. It may be necessary to perform the processing no
 ```js
 editor.on('nodecreated connectioncreated noderemoved connectionremoved', () => { 
     await engine.abort();
-    await engine.process();
+    await engine.process(editor.toJSON());
 });
 ```

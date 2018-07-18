@@ -45,8 +45,8 @@ class NumberComponent extends Rete.Component {
 
     builder(node){
         // modify node
-        node.addInput(new Rete.Input('Number',numSocket));
-        node.addOutput(new Rete.Output('Number',numSocket));
+        node.addInput(new Rete.Input('key1', 'Number',numSocket));
+        node.addOutput(new Rete.Output('key2', 'Number',numSocket));
     }
 }
 ```

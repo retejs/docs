@@ -16,7 +16,14 @@ This plugin is always required for full-fledged work of the editor, as it is res
 ```js
 import * as AlightRenderPlugin from 'rete-alight-render-plugin';
 
-editor.use(AlightRenderPlugin);
+editor.use(AlightRenderPlugin, { template: '<div ...>' }); // global template
+
+class MyComponent extends Component {
+    constructor(){
+        // ...
+        this.template = '<div ...>'; // component specific template
+    }
+}
 ```
 It's also always necessary plugin, but it can be replaced with the same plugin that uses a library other than Angular Light to render the data
 
@@ -122,7 +129,7 @@ Example of use:
 ```js
 // inside of compoent's constructor
 this.task = {
-    outputs: ['option', 'output'],
+    outputs: {num1: 'option', num2: 'output'},
     init(task) {  // сalled when initializing all tasks (at the engine.process())
         task.run('any data');
         task.reset();
@@ -132,9 +139,9 @@ this.task = {
 // workers should looks like follows:
 worker(node, inputs, data) { // data is 'any data' from run()
     console.log('Keydown event', node.id, data);
-    
-    this.closed = [0]; // prevents the call of the Tasks, which are connected to the current task through the first 'option' socket
-    return [data] // return output data
+    // inputs['inp_num1']
+    this.closed = ['num1']; // prevents the call of the Tasks, which are connected to the current task through the first 'option' socket
+    return {num2: data} // return output data
 }
 ```
 
