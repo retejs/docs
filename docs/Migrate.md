@@ -289,6 +289,7 @@ var moduleManager = new D3NE.ModuleManager(['Input'], ['Output']);
 ```
 
 Named inputs/outputs
+-
 
 ### v0.7.4
 
