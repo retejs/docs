@@ -146,3 +146,24 @@ worker(node, inputs, data) { // data is 'any data' from run()
 ```
 
 [Full code](https://github.com/retejs/examples/tree/master/Tasks)
+
+### Comment [![npm](https://img.shields.io/npm/v/rete-comment-plugin.svg)](https://www.npmjs.com/package/rete-comment-plugin)
+
+![comment](assets/comment.png)
+
+```js
+import * as CommentPlugin from 'rete-comment-plugin';
+
+editor.use(CommentPlugin);
+```
+
+
+### Minimap [![npm](https://img.shields.io/npm/v/rete-minimap-plugin.svg)](https://www.npmjs.com/package/rete-minimap-plugin)
+
+![minimap](assets/minimap.png)
+
+```js
+import * as MinimapPlugin from 'rete-minimap-plugin';
+
+editor.use(MinimapPlugin);
+```
