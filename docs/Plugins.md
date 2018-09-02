@@ -11,7 +11,7 @@ editor.use(ConnectionPlugin, { curvature: 0.4 });
 This plugin is always required for full-fledged work of the editor, as it is responsible for displaying and managing connections.
 
 
-### Alight Renderer [![npm](https://img.shields.io/npm/v/rete-alight-render-plugin.svg)](https://www.npmjs.com/package/rete-alight-render-plugin)
+### Alight Render [![npm](https://img.shields.io/npm/v/rete-alight-render-plugin.svg)](https://www.npmjs.com/package/rete-alight-render-plugin)
 
 ```js
 import * as AlightRenderPlugin from 'rete-alight-render-plugin';
@@ -21,12 +21,45 @@ editor.use(AlightRenderPlugin, { template: '<div ...>' }); // global template
 class MyComponent extends Component {
     constructor(){
         // ...
+        this.render = 'alight'; // required if used more than one render plugin
         this.template = '<div ...>'; // component specific template
     }
 }
 ```
 It's also always necessary plugin, but it can be replaced with the same plugin that uses a library other than Angular Light to render the data
 
+### Vue Render [![npm](https://img.shields.io/npm/v/rete-vue-render-plugin.svg)](https://www.npmjs.com/package/rete-vue-render-plugin)
+
+```js
+import * as VueRenderPlugin from 'rete-vue-render-plugin';
+
+editor.use(VueRenderPlugin);
+```
+
+```js
+import CustomNodeComponent from './CustomNodeComponent.vue';
+import CustomControlComponent from './CustomControlComponent.vue';
+
+class MyComponent extends Rete.Component {
+    constructor(){
+        // ...
+        this.render = 'vue';
+        this.component = CustomNodeComponent; // Vue.js component, not required
+        this.props = {}; // props for the component above, not required
+    }
+}
+
+class MyControl extends Rete.Control {
+    constructor(){
+        // ...
+        this.render = 'vue';
+        this.component = CustomControlComponent; // Vue.js component, required
+        this.props = {}; // props for the component above, not required
+    }
+}
+```
+
+`CustomNodeComponent` and `CustomControlComponent` are conventional Vue.js components. `Rete.Control` requires component while `Rete.Component` may use the default [Node.vue](https://github.com/retejs/vue-render-plugin/blob/master/src/Node.vue) component. On the basis of it you can create your own components or extend it. `getData` and `putData` will be accessed from your component through props. Also after changing of Node's elements dynamically (add Input/Output, etc.) you have to call `node.update()` or `control.update()`
 
 ### Context menu [![npm](https://img.shields.io/npm/v/rete-context-menu-plugin.svg)](https://www.npmjs.com/package/rete-context-menu-plugin)
 
