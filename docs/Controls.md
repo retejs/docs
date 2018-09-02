@@ -46,3 +46,22 @@ As you can see, the controls can not only display some information, but also cha
 
 In this case, the control puts a number in the node data. It can be used when there is no connection on the input.
 
+[Vue Render plugin](Plugins#vue-render) can replace the Alight Render plugin and allow to use Vue.js components in for of Rete.Control or Rete.Component.
+
+```js
+import CustomControlComponent from './CustomControlComponent.vue';
+
+class MyControl extends Rete.Control {
+    constructor(){
+        // ...
+        this.render = 'vue';
+        this.component = CustomControlComponent;
+        this.props = {};
+    }
+
+    setValue(val) {
+        this.vueContext.value = val; // vueContext and
+        this.update() // update() will be added after mounting of the component
+    }
+}
+```
