@@ -200,3 +200,25 @@ import MinimapPlugin from 'rete-minimap-plugin';
 
 editor.use(MinimapPlugin);
 ```
+
+### Connection path [![npm](https://img.shields.io/npm/v/rete-connection-path-plugin.svg)](https://www.npmjs.com/package/rete-connection-path-plugin)
+
+```js
+import ConnectionPathPlugin from 'rete-connection-path-plugin';
+
+editor.use(ConnectionPathPlugin, {
+    type: ConnectionPathPlugin.DEFAULT, // DEFAULT or LINEAR transformer
+    transformer: () => ([x1, y1, x2, y2]) => [[x1, y1], [x2, y2]], // optional, custom transformer
+    curve: ConnectionPathPlugin.curveBundle, // curve identifier
+    options: { vertical: false, curvature: 0.4 }, // optional
+    arrow: { color: 'steelblue', marker: 'M-5,-10 L-5,10 L20,0 z' }
+});
+```
+
+### Connection reroute [![npm](https://img.shields.io/npm/v/rete-connection-reroute-plugin.svg)](https://www.npmjs.com/package/rete-connection-reroute-plugin)
+
+```js
+import ConnectionReroutePlugin from 'rete-connection-reroute-plugin';
+
+editor.use(ConnectionReroutePlugin);
+```
