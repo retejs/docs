@@ -4,25 +4,25 @@ Plugins
 ### Conection [![npm](https://img.shields.io/npm/v/rete-connection-plugin.svg)](https://www.npmjs.com/package/rete-connection-plugin)
 
 ```js
-import * as ConnectionPlugin from 'rete-connection-plugin';
+import ConnectionPlugin from 'rete-connection-plugin';
 
 editor.use(ConnectionPlugin, { curvature: 0.4 });
 ```
 This plugin is always required for full-fledged work of the editor, as it is responsible for displaying and managing connections.
 
 
-### Alight Render [![npm](https://img.shields.io/npm/v/rete-alight-render-plugin.svg)](https://www.npmjs.com/package/rete-alight-render-plugin)
+### Alight Render [![npm](https://img.shields.io/npm/v/rete-alight-render-plugin.svg)](https://www.npmjs.com/package/rete-alight-render-plugin)  <span style="color:red">deprecated</span>
 
 ```js
-import * as AlightRenderPlugin from 'rete-alight-render-plugin';
+import AlightRenderPlugin from 'rete-alight-render-plugin';
 
 editor.use(AlightRenderPlugin, { template: '<div ...>' }); // global template
 
 class MyComponent extends Component {
     constructor(){
         // ...
-        this.render = 'alight'; // required if used more than one render plugin
-        this.template = '<div ...>'; // component specific template
+        this.data.render = 'alight'; // required if used more than one render plugin
+        this.data.template = '<div ...>'; // component specific template
     }
 }
 ```
@@ -31,7 +31,7 @@ It's also always necessary plugin, but it can be replaced with the same plugin t
 ### Vue Render [![npm](https://img.shields.io/npm/v/rete-vue-render-plugin.svg)](https://www.npmjs.com/package/rete-vue-render-plugin)
 
 ```js
-import * as VueRenderPlugin from 'rete-vue-render-plugin';
+import VueRenderPlugin from 'rete-vue-render-plugin';
 
 editor.use(VueRenderPlugin);
 ```
@@ -44,8 +44,8 @@ class MyComponent extends Rete.Component {
     constructor(){
         // ...
         this.render = 'vue';
-        this.component = CustomNodeComponent; // Vue.js component, not required
-        this.props = {}; // props for the component above, not required
+        this.data.component = CustomNodeComponent; // Vue.js component, not required
+        this.data.props = {}; // props for the component above, not required
     }
 }
 
@@ -64,7 +64,7 @@ class MyControl extends Rete.Control {
 ### Context menu [![npm](https://img.shields.io/npm/v/rete-context-menu-plugin.svg)](https://www.npmjs.com/package/rete-context-menu-plugin)
 
 ```js
-import * as ContextMenuPlugin from 'rete-context-menu-plugin';
+import ContextMenuPlugin from 'rete-context-menu-plugin';
 
 editor.use(ContextMenuPlugin);
 ```
@@ -73,7 +73,7 @@ Current version of this plugin does not have such rich functionality as a menu i
 ### Keyboard [![npm](https://img.shields.io/npm/v/rete-keyboard-plugin.svg)](https://www.npmjs.com/package/rete-keyboard-plugin)
 
 ```js
-import * as KeyboardPlugin from 'rete-keyboard-plugin';
+import KeyboardPlugin from 'rete-keyboard-plugin';
 
 editor.use(KeyboardPlugin);
 ```
@@ -82,7 +82,7 @@ Handles keydown events for keys such as "Delete" (remove node) or "Space" (open 
 ### Module [![npm](https://img.shields.io/npm/v/rete-module-plugin.svg)](https://www.npmjs.com/package/rete-module-plugin)
 
 ```js
-import * as ModulePlugin from 'rete-module-plugin';
+import ModulePlugin from 'rete-module-plugin';
 
 editor.use(ModulePlugin, { engine, modules });
 ```
@@ -122,7 +122,7 @@ The plugin itself will add inputs and outputs to the Module node, but in the res
 ### Profiler [![npm](https://img.shields.io/npm/v/rete-profiler-plugin.svg)](https://www.npmjs.com/package/rete-profiler-plugin)
 
 ```js
-import * as ProfilerPlugin from 'rete-profiler-plugin';
+import ProfilerPlugin from 'rete-profiler-plugin';
 
 engine.use(ProfilerPlugin, { editor, enabled: true }); // editor can be optional
 ```
@@ -132,7 +132,7 @@ This plugin adds an element to each node to display the elapsed time by the work
 ### Readonly [![npm](https://img.shields.io/npm/v/rete-readonly-plugin.svg)](https://www.npmjs.com/package/rete-readonly-plugin)
 
 ```js
-import * as ReadonlyPlugin from 'rete-readonly-plugin';
+import ReadonlyPlugin from 'rete-readonly-plugin';
 
 editor.use(ReadonlyPlugin, { enabled: false });
 ```
@@ -152,7 +152,7 @@ Thus, thanks to the event architecture, these functions can be implemented witho
 ### Task [![npm](https://img.shields.io/npm/v/rete-task-plugin.svg)](https://www.npmjs.com/package/rete-task-plugin)
 
 ```js
-import * as TaskPlugin from 'rete-task-plugin';
+import TaskPlugin from 'rete-task-plugin';
 
 editor.use(TaskPlugin);
 ```
@@ -185,7 +185,7 @@ worker(node, inputs, data) { // data is 'any data' from run()
 ![comment](assets/comment.png)
 
 ```js
-import * as CommentPlugin from 'rete-comment-plugin';
+import CommentPlugin from 'rete-comment-plugin';
 
 editor.use(CommentPlugin);
 ```
@@ -196,7 +196,7 @@ editor.use(CommentPlugin);
 ![minimap](assets/minimap.png)
 
 ```js
-import * as MinimapPlugin from 'rete-minimap-plugin';
+import MinimapPlugin from 'rete-minimap-plugin';
 
 editor.use(MinimapPlugin);
 ```
