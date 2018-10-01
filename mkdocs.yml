@@ -1,5 +1,5 @@
 site_name: Rete.js
-theme: default
+theme: readthedocs
 docs_dir: docs
 pages:
 - 'Getting started': 'index.md'
