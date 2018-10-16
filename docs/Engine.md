@@ -12,6 +12,10 @@ await engine.process(data);
 
 It can work independently and without knowing anything about NodeEditor.
 
+How it works:
+
+![](assets/process.gif)
+
 ## Processing
 
 Consider the situation when during the work in the editor you need to immediately receive the results of the changes (this is easy to do with [`change` event](Events))
