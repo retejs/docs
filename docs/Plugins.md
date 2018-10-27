@@ -182,12 +182,18 @@ worker(node, inputs, data) { // data is 'any data' from run()
 
 ### Comment [![npm](https://img.shields.io/npm/v/rete-comment-plugin.svg)](https://www.npmjs.com/package/rete-comment-plugin)
 
+Comment plugin supports two kinds of comments: **inline** and **frame**. 
+
+Inline comment are attached to target node. 
+
+Frame comments are used as group replacements because it don't affect processing and simply help the developer explore the graph.
+
 ![comment](assets/comment.png)
 
 ```js
 import CommentPlugin from 'rete-comment-plugin';
 
-editor.use(CommentPlugin);
+editor.use(CommentPlugin, { margin: 20 });
 ```
 
 
