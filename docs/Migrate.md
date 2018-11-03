@@ -317,3 +317,5 @@ worker(node, inputs, outputs) {
     outputs['key'] = ...
 }
 ```
+
+You can convert old data with numerical indices to named via [script](https://jsfiddle.net/Ni55aN/Lm5fawvc/37/)
