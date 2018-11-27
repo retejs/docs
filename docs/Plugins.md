@@ -10,24 +10,6 @@ editor.use(ConnectionPlugin, { curvature: 0.4 });
 ```
 This plugin is always required for full-fledged work of the editor, as it is responsible for displaying and managing connections.
 
-
-### Alight Render [![npm](https://img.shields.io/npm/v/rete-alight-render-plugin.svg)](https://www.npmjs.com/package/rete-alight-render-plugin)  <span style="color:red">deprecated</span>
-
-```js
-import AlightRenderPlugin from 'rete-alight-render-plugin';
-
-editor.use(AlightRenderPlugin, { template: '<div ...>' }); // global template
-
-class MyComponent extends Component {
-    constructor(){
-        // ...
-        this.data.render = 'alight'; // required if used more than one render plugin
-        this.data.template = '<div ...>'; // component specific template
-    }
-}
-```
-It's also always necessary plugin, but it can be replaced with the same plugin that uses a library other than Angular Light to render the data
-
 ### Vue Render [![npm](https://img.shields.io/npm/v/rete-vue-render-plugin.svg)](https://www.npmjs.com/package/rete-vue-render-plugin)
 
 ```js
@@ -61,14 +43,129 @@ class MyControl extends Rete.Control {
 
 `CustomNodeComponent` and `CustomControlComponent` are conventional Vue.js components. `Rete.Control` requires component while `Rete.Component` may use the default [Node.vue](https://github.com/retejs/vue-render-plugin/blob/master/src/Node.vue) component. On the basis of it you can create your own components or extend it. `getData` and `putData` will be accessed from your component through props. Also after changing of Node's elements dynamically (add Input/Output, etc.) you have to call `node.update()` or `control.update()`
 
+
+### Stage0 Render [![npm](https://img.shields.io/npm/v/rete-stage0-render-plugin.svg)](https://www.npmjs.com/package/rete-stage0-render-plugin)  <span style="color:green">lightweight</span>
+
+Rete renderer using https://www.npmjs.com/package/stage0 (~1.6 kb framewok)
+
+Example: https://codepen.io/anon/pen/jQBxKe
+
+```js
+import Stage0RenderPlugin from 'rete-stage0-render-plugin';
+
+editor.use(Stage0RenderPlugin);
+```
+
+```js
+import CustomNodeComponent from './CustomNodeComponent.js';
+
+class MyComponent extends Rete.Component {
+    constructor(){
+        // ...
+        this.data.render = 'stage0';
+        this.data.component = CustomNodeComponent; // stage0.js component, not required
+        this.data.props = {}; // props for the component above, not required
+    }
+}
+const node = editor.nodes[0];
+const control = node.controls.get('ctrl');
+
+node.update(); // force update
+control.update(); // of view
+
+// in some cases you can gt stage0.js context
+node.stage0Context
+control.stage0Context
+```
+
+### Alight Render [![npm](https://img.shields.io/npm/v/rete-alight-render-plugin.svg)](https://www.npmjs.com/package/rete-alight-render-plugin)  <span style="color:red">deprecated</span>
+
+```js
+import AlightRenderPlugin from 'rete-alight-render-plugin';
+
+editor.use(AlightRenderPlugin, { template: '<div ...>' }); // global template
+
+class MyComponent extends Component {
+    constructor(){
+        // ...
+        this.data.render = 'alight'; // required if used more than one render plugin
+        this.data.template = '<div ...>'; // component specific template
+    }
+}
+```
+It's also always necessary plugin, but it can be replaced with the same plugin that uses a library other than Angular Light to render the data
+
 ### Context menu [![npm](https://img.shields.io/npm/v/rete-context-menu-plugin.svg)](https://www.npmjs.com/package/rete-context-menu-plugin)
 
 ```js
 import ContextMenuPlugin from 'rete-context-menu-plugin';
 
-editor.use(ContextMenuPlugin);
+editor.use(ContextMenuPlugin, {
+    searchBar: false,
+    delay: 100,
+    allocate(component) {
+        return ['Submenu']
+    },
+    items: {
+        'Click me'(){ console.log('Works!') }
+    }
+});
 ```
-Current version of this plugin does not have such rich functionality as a menu in v0.7.4, and only displays all registered nodes in the form of one list.
+| Options | Description | Default |
+|-|-|-|
+| `searchBar` | Showing search bar | `true`
+| `delay` | Delay hide, ms | `1000`
+| `allocate` | function for placing of components into submenu | `() => []`
+| `items` | custom items (`Object` with nested objects and functions) | `{}`
+
+
+You can arbitrarily put a component in a submenu. Examples: 
+
+```js
+allocate() { return ["Single submenu"] }
+```
+
+```js
+allocate(component) { return component.path } // where path is a stack of menu for every component
+```
+
+
+```js
+allocate(component) { return null } // exclude component from menu items
+```
+
+### Stage0 Menu [![npm](https://img.shields.io/npm/v/rete-context-menu-plugin.svg)](https://www.npmjs.com/package/rete-context-menu-plugin)  <span style="color:green">lightweight</span>
+
+```js
+import Stage0MenuPlugin from 'rete-stage0-menu-plugin';
+
+editor.use(Stage0MenuPlugin, {
+    searchBar: false,
+    delay: 100,
+    docked: true,
+    allocate(component) {
+        if (component.name == "Number") {
+            return false;
+        }
+        return ["submenu", "subsubmenu"];
+    },
+    items: {
+        "Menu": {
+            "Add component": components[1],
+            "Fn": () => {
+                alert("Fn");
+            }
+        }
+    }
+});
+```
+| Options | Description | Default |
+|-|-|-|
+| `searchBar` | Showing search bar | `true`
+| `delay` | Delay hide, ms | `100`
+| `allocate` | function for placing of components into submenu (return false to exclude) | `() => []`
+| `docked` | If you want Blender style docked menu | `false`
+| `items` | Hand crafted menu | `{}`
 
 ### Keyboard [![npm](https://img.shields.io/npm/v/rete-keyboard-plugin.svg)](https://www.npmjs.com/package/rete-keyboard-plugin)
 
