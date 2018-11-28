@@ -134,7 +134,7 @@ allocate(component) { return component.path } // where path is a stack of menu f
 allocate(component) { return null } // exclude component from menu items
 ```
 
-### Stage0 Menu [![npm](https://img.shields.io/npm/v/rete-context-menu-plugin.svg)](https://www.npmjs.com/package/rete-context-menu-plugin)  <span style="color:green">lightweight</span>
+### Stage0 Menu [![npm](https://img.shields.io/npm/v/rete-stage0-menu-plugin.svg)](https://www.npmjs.com/package/rete-stage0-menu-plugin)  <span style="color:green">lightweight</span>
 
 ```js
 import Stage0MenuPlugin from 'rete-stage0-menu-plugin';
