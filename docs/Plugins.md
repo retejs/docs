@@ -1,14 +1,14 @@
 Plugins
 =
 
-### Conection [![npm](https://img.shields.io/npm/v/rete-connection-plugin.svg)](https://www.npmjs.com/package/rete-connection-plugin)
+### Connection [![npm](https://img.shields.io/npm/v/rete-connection-plugin.svg)](https://www.npmjs.com/package/rete-connection-plugin)
 
 ```js
 import ConnectionPlugin from 'rete-connection-plugin';
 
 editor.use(ConnectionPlugin, { curvature: 0.4 });
 ```
-This plugin is always required for full-fledged work of the editor, as it is responsible for displaying and managing connections.
+This plugin is required for full-fledged work of the editor, as it is responsible for displaying and managing connections.
 
 ### Vue Render [![npm](https://img.shields.io/npm/v/rete-vue-render-plugin.svg)](https://www.npmjs.com/package/rete-vue-render-plugin)
 
@@ -41,7 +41,7 @@ class MyControl extends Rete.Control {
 }
 ```
 
-`CustomNodeComponent` and `CustomControlComponent` are conventional Vue.js components. `Rete.Control` requires component while `Rete.Component` may use the default [Node.vue](https://github.com/retejs/vue-render-plugin/blob/master/src/Node.vue) component. On the basis of it you can create your own components or extend it. `getData` and `putData` will be accessed from your component through props. Also after changing of Node's elements dynamically (add Input/Output, etc.) you have to call `node.update()` or `control.update()`
+`CustomNodeComponent` and `CustomControlComponent` are conventional Vue.js components. `Rete.Control` requires component while `Rete.Component` may use the default [Node.vue](https://github.com/retejs/vue-render-plugin/blob/master/src/Node.vue) component. On the basis of it you can create your own components or extend them. `getData` and `putData` will be accessed from your component through props. After changing Node's elements dynamically (add Input/Output, etc.) you must call `node.update()` or `control.update()`
 
 
 ### Stage0 Render [![npm](https://img.shields.io/npm/v/rete-stage0-render-plugin.svg)](https://www.npmjs.com/package/rete-stage0-render-plugin)  <span style="color:green">lightweight</span>
@@ -73,7 +73,7 @@ const control = node.controls.get('ctrl');
 node.update(); // force update
 control.update(); // of view
 
-// in some cases you can gt stage0.js context
+// in some cases you can get stage0.js context
 node.stage0Context
 control.stage0Context
 ```
@@ -93,7 +93,7 @@ class MyComponent extends Component {
     }
 }
 ```
-It's also always necessary plugin, but it can be replaced with the same plugin that uses a library other than Angular Light to render the data
+It's also a necessary plugin, but it can be replaced with the same plugin that uses a library other than Angular Light to render the data
 
 ### Context menu [![npm](https://img.shields.io/npm/v/rete-context-menu-plugin.svg)](https://www.npmjs.com/package/rete-context-menu-plugin)
 
@@ -119,7 +119,7 @@ editor.use(ContextMenuPlugin, {
 | `items` | custom items (`Object` with nested objects and functions) | `{}`
 
 
-You can arbitrarily put a component in a submenu. Examples: 
+You can arbitrarily put a component in a submenu. Examples:
 
 ```js
 allocate() { return ["Single submenu"] }
@@ -184,7 +184,7 @@ import ModulePlugin from 'rete-module-plugin';
 editor.use(ModulePlugin, { engine, modules });
 ```
 
-where `modules` is an assocuative array with objects
+where `modules` is an associative array with objects
 
 For instance:
 
@@ -242,7 +242,7 @@ This plugin prevents a follow events:
 - connectioncreate
 - connectionremove
 - nodecreate
-- noderemov
+- noderemove
 
 Thus, thanks to the event architecture, these functions can be implemented without interfering with the library code.
 
@@ -257,7 +257,7 @@ editor.use(TaskPlugin);
 Example of use:
 
 ```js
-// inside of compoent's constructor
+// inside of component's constructor
 this.task = {
     outputs: {num1: 'option', num2: 'output'},
     init(task) {  // сalled when initializing all tasks (at the engine.process())
@@ -266,7 +266,7 @@ this.task = {
     }
 }
 
-// workers should looks like follows:
+// workers should look as follows:
 worker(node, inputs, data) { // data is 'any data' from run()
     console.log('Keydown event', node.id, data);
     // inputs['inp_num1']
@@ -279,11 +279,11 @@ worker(node, inputs, data) { // data is 'any data' from run()
 
 ### Comment [![npm](https://img.shields.io/npm/v/rete-comment-plugin.svg)](https://www.npmjs.com/package/rete-comment-plugin)
 
-Comment plugin supports two kinds of comments: **inline** and **frame**. 
+Comment plugin supports two kinds of comments: **inline** and **frame**.
 
-Inline comment are attached to target node. 
+Inline comment are attached to target node.
 
-Frame comments are used as group replacements because it don't affect processing and simply help the developer explore the graph.
+Frame comments are used as group replacements because it doesn't affect processing and simply helps the developer explore the graph.
 
 ![comment](assets/comment.png)
 

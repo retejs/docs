@@ -30,7 +30,7 @@ Create needed [Sockets](Sockets)
 ```js
 const numSocket = new Rete.Socket('Number value');
 ```
-Define them styles
+Define styles
 ```css
 .socket.number{
     background: #96b38a
@@ -43,9 +43,9 @@ class NumComponent extends Rete.Component {
     constructor(){
         super('Number');
     }
-    
+
     builder(node) {
-        let out = new Rete.Output('Number',numSocket); 
+        let out = new Rete.Output('Number',numSocket);
 
         node.addOutput(out);
     }
@@ -55,7 +55,7 @@ class NumComponent extends Rete.Component {
     }
 }
 ```
-Initialize a [node editor](Editor) aand register component
+Initialize a [node editor](Editor) and register component
 ```html
 <div id="rete" class="node-editor"></div>
 ```
@@ -75,7 +75,7 @@ const engine = new Rete.Engine('demo@0.1.0');
 editor.register(numComponent);
 
 editor.on('process nodecreated noderemoved connectioncreated connectionremoved', async () => {
-    await engine.abort();            
-    await engine.process(editor.toJSON());            
+    await engine.abort();
+    await engine.process(editor.toJSON());
 });
 ```
