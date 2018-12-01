@@ -1,11 +1,11 @@
 Events
 =
 
-The architecture of the framework is built on the event-based model, which allowed to achieve weak connectivity between components and modifying the editor with plugins
+The architecture of the framework is built on the event-based model, that allowed to achieve weak connectivity between components and modifying the editor with plugins
 
 The editor can trigger the following events:
 
-| Event name | Parameters | Preventable | Note | 
+| Event name | Parameters | Preventable | Note |
 | :--------- | :--------- | :---------- | :--- |
 | nodecreate | node | ✓ | |
 | nodecreated | node | | |
@@ -51,7 +51,7 @@ editor.on('process', () => {
 Preventable events are performed before the action and give you control to make a decision to prevent them
 
 ```js
-editor.on('nodecreate', node => { 
+editor.on('nodecreate', node => {
    // trigger after each of the first six events
 
    /// check if there is already a node with that name
@@ -62,10 +62,10 @@ editor.on('nodecreate', node => {
 
 Before the action, all listeners of the event are checked, and if at least one returns false, then the action will not be executed. By default `return true` is not needed.
 
-You can handle multiple events. It may be necessary to perform the processing not with every change in the editor, but only with those that can influence the processing result (for example, there is no sense in executing the processing if the user has only changed the position of the node)
+You can handle multiple events. It may be necessary to perform the processing not with every change in the editor, but only with those, that can influence the processing result (for example, there is no sense in executing the processing if the user has only changed the position of the node)
 
 ```js
-editor.on('nodecreated connectioncreated noderemoved connectionremoved', () => { 
+editor.on('nodecreated connectioncreated noderemoved connectionremoved', () => {
     await engine.abort();
     await engine.process(editor.toJSON());
 });

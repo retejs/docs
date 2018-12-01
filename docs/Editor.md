@@ -4,7 +4,8 @@ Editor
 ![components](assets/editor.png)
 
 `NodeEditor` presents an area with nodes and connections beetween their sockets:
-- Available interaction with the working area (moving, zoom) and managing nodes (move, add, delete)
+
+- Available interaction with the working area (moving around, zoom) and managing nodes (move, add, delete)
 - Each node can have inputs and outputs through which connections to other nodes are created
 - Handle editor [events](Events)
 - All editor data can be [exported and imported](Editor#exportimport-data) from JSON format
@@ -19,7 +20,7 @@ The `container` is a simple HTMLelement (div, usually)
 
 ## Identifier
 
-Identifier consists of the app name and version. The version is needed to control the import of data into your editor, since the data to previous versions can be incompatible with the current version of your editor (where the main role is played by the Node builders, see below). The same rule exists for the [Engine](Engine), which allows to prevent incompatibility of data with implementations in [node workers](Engine#node-workers)
+Identifier consists of the app name and a version. Version is needed to control the import of data into your editor, since data from previous versions can be incompatible with the current version of your editor (where the main role is played by the Node builders, see below). The same rule exists for the [Engine](Engine), which allows to prevent incompatibility of data with implementations in [node workers](Engine#node-workers)
 
 
 ## Export/import data
@@ -30,15 +31,15 @@ var data = editor.toJSON()
 ```
 Tht data have about the following structure:
 ```json
-{  
+{
    "id":"demo@0.1.0",
-   "nodes":{  
-      "1":{  
+   "nodes":{
+      "1":{
          "id":1,
          "data":{"num":1},
          "inputs":[],
-         "outputs":[  
-            {"connections":[  
+         "outputs":[
+            {"connections":[
                   {"node":3, "input":0 }
             ]}
          ],
